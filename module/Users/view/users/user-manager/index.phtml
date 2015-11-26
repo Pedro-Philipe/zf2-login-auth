@@ -1,0 +1,21 @@
+<h3>Usuario</h3>
+<table class="table">
+<tr>
+    <th>Nomes de usuario</th>
+    <th>Email</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($users as $user) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($user->name);?></td>
+    <td><?php echo $this->escapeHtml($user->email);?></td>
+    <td>
+        <a href="<?php echo $this->url('users/user-manager',
+            array('action'=>'edit', 'id' => $user->id));?>">Edit</a> |
+        <a href="<?php echo $this->url('users/user-manager',
+            array('action'=>'delete', 'id' => $user->id));?>" onclick="return confirm('Você tem certeza?')">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+<hr />

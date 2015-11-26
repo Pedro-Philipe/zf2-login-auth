@@ -1,0 +1,20 @@
+
+<form name="form" method="POST"  action="/application/index/edit/<?php echo $this->cliente->getId();?>">
+	<input type="hidden" name="id" value="<?php echo $this->cliente->getId();?>"/>
+	<label>Nome</label>
+	<input type="text" name="nome" value="<?php echo $this->cliente->getNome();?>"/>
+	<br/>
+
+	<label>Endereço</label>
+	<input type="text" name="endereco" value="<?php echo $this->cliente->getEndereco();?>"/>
+	<br/>
+
+	<label>Cidade/UF</label>
+	<input type="text" name="cidade" value="<?php echo $this->cliente->getCidade();?>"/>
+	<br/>
+	<label>Bairro</label>
+	<input type="text" name="bairro" value="<?php echo $this->cliente->getBairro();?>"/>
+	<br/>
+
+	<button class="btn btn-success" type="submit">Enviar</button>
+</form>

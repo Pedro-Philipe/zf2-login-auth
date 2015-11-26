@@ -1,0 +1,76 @@
+Installation Notes
+==================
+
+XAMPP
+- Install XAMPP in c:\xampp to have access to MySql
+- Start MySql from the Xampp control panel
+- Eventually, copy \php\example\phpinfo.php into c:\xampp\htdocs\xampp\phpinfo.php
+
+REM: It does not matter if fpm is not enabled locally
+
+MYSQL
+- Set proper UTF8 in MySql: https://symfony.com/doc/current/book/doctrine.html
+
+VIRTUAL HOST (eventually)
+- Lets myapp.local point to the directory hosting your code
+-> See http://framework.zend.com/manual/current/en/user-guide/skeleton-application.html
+
+TESTING
+- Download the phpunit.phar file into the c:\php installation directory
+- Download ZF2 and unzip in c:\php\zf2-version
+- Create an Environment variable called ZF2_PATH pointing at c:\php\zf2-version\library
+- Reboot to make it effective
+- Update php.ini: include_path = ".;c:\php\ZendFramework-2.4.7\library"
+
+NETBEANS
+- Install the Zend2 plugin
+- If necessary, configure Composer
+-- Right-click the Netbeans project and select composer > self-update
+
+- DEBUG
+-- To install XDebug, go to http://xdebug.org/wizard.php and follow instruction
+-- Retrieve your IPv4 address with ipconfig in DOS session
+-- Edit php.ini and add:
+zend_extension = "C:\php\php_xdebug-2.3.3-5.5-vc11.dll"
+xdebug.remote_autostart=on
+xdebug.remote_enable=on
+xdebug.remote_handler=dbgp
+xdebug.remote_host=192.168.1.19
+xdebug.remote_port=9000
+xdebug.remote_mode=req
+xdebug.idekey="netbeans-xdebug"
+-- Double-check the idekey and port value in Netbeans PHP configuration
+-- Reboot Netbeans
+
+- PHPUNIT
+-- In Tools > Options > PHP > Frameworks Tabs > PHPUnit, set the path to c:\phpunit.phar
+-- In the project's properties > Testing, check PHPUnit and add the \test folder
+-- In properties > Testing > PHPUnit, set use Bootstrap and XML Configuration
+-- In Bootstrap.php, don't forget to update the Module list in init()
+
+ZEND APP CREATION
+- If not set-up in Netbeans
+-- Download the zendskeleton.zip in c:\php
+-- Configure Netbeans (PHP tab) to set the location of this skeleton
+- Or unzip it in the target directory
+-- and create a Netbeans Zend application with sources
+-- make sure the web root is set to \public
+- Composer:
+-- Right-click the Netbeans project and select Composer > install
+-- a composer.lock will be automatically created, add it to git commit
+
+ORM PERSISTENCE DOCTRINE2
+-- Install the Doctrine 2 plugin in Netbeans
+-- Copy /bin from /vendor to c:\php\bin
+-- Configure access to Doctrine 2 .bat in Netbeans PHP config
+-- Enable Doctrine2 in project properties
+-- Make sure the doctrine dependency is set in composer.json
+    "require": {
+        ...
+        "doctrine/orm": "2.4.*"
+    }
+-- Create the bootstrap.php and cli-config.php files in the project root
+-- To invoke, right-click on the Netbeans project
+--- For parameters: --generate-methods="true"
+>>> Bug it is buggy
+

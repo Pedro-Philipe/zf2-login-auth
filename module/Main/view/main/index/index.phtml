@@ -1,0 +1,30 @@
+<?php
+    $this->headMeta()->appendName('description', $this->translate('A demonstration application for the Zend 2 framework'));
+?>
+
+<div class="col-xs-12 col-md-6">
+
+<h1>Paginas</h1>
+
+<p>Pagina dos usuários (teste):</p>
+
+<ul><strong>
+    <li><a href="/restricted/user/user1">Página User1</a></li>
+    <li><a href="/restricted/user/user2">Página User2</a></li>
+    <li><a href="/restricted/admin">Página Admin</a></li>
+</strong></ul>
+</div>
+
+<div class="col-xs-12 col-md-6">
+
+<?php echo $this->loginWidget(); ?>
+
+</div>
+
+<form method="post">
+    <input type="text" name="usuario" placeholder="Usuário" />
+
+    <input type="password" name="senha" placeholder="Senha" />
+
+    <input type="submit" value="Entrar" />
+</form>

@@ -1,0 +1,24 @@
+
+<h1>Nova proposta</h1>
+</br>
+  <form name="form" method="POST" action="/application/proposta/create">
+    <label>Edital</label>
+    <select name="id_edital">
+      <?php foreach($this->editais as $o): ?>
+        <option value="<?php echo $o->getId();?>"><?php echo $o->getNome();?>
+      <?php endforeach;?>
+    </select>
+
+    </br>
+  	<label>Nome</label>
+  	<input type="text" name="nome" />
+  	<br/>
+  	<label>Descrição</label>
+  	<input type="text" name="descricao" />
+  	<br/>
+    <label>Preço</label>
+  	<input type="text" name="preco" />
+  	<br/>
+    <input type="hidden" name="acao" value="enviado" />
+  	<button class="btn btn-success" type="submit">Enviar</button>
+</form>

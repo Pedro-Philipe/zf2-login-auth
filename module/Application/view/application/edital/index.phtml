@@ -1,0 +1,38 @@
+
+<h1>Editais em aberto</h1>
+</br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Data de encerramento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->editais as $o): ?>
+        <tr>
+            <td><?php echo $o->getNome();?></td>
+            <td><?php echo $o->getDescricao();?></td>
+            <td><?php echo $o->getDt_encerramento();?></td>
+
+
+        <!-->  <-->
+            <td>
+              <a href="/application/edital/edit/<?php echo $o->getId();?>">
+              Editar
+              </a>
+              |
+              <a href="/application/edital/delete/<?php echo $o->getId();?>">
+              Excluir
+              </a>
+            </td>
+
+        <!-->  <-->
+
+
+
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>

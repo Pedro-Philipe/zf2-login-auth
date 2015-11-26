@@ -1,0 +1,28 @@
+
+<form name="form" method="POST"  action="/application/proposta/edit/<?php echo $this->proposta->getId();?>">
+  <label>Edital</label>
+  <label>Edital </label>
+  <select name="edital">
+       <option value=''>Selecione--</option>
+      <?php
+      $consulta= mysql_query("select * from editais order by id");
+      while($dados = mysql_fetch_array($consulta)){
+
+      ?>
+      <option value="<?php echo $dados['id']?>"><?php echo $dados['nome']?></option>
+      <?php  }   ?>
+    </select>
+
+  </br>
+	<input type="hidden" name="id" value="<?php echo $this->proposta->getId();?>"/>
+	<label>Nome</label>
+	<input type="text" name="nome" value="<?php echo $this->proposta->getNome();?>"/>
+	<br/>
+	<label>Descrição</label>
+	<input type="text" name="descricao" value="<?php echo $this->proposta->getDescricao();?>"/>
+	<br/>
+  <label>Preço</label>
+	<input type="text" name="preco" value="<?php echo $this->proposta->getPreco();?>"/>
+	<br/>
+	<button class="btn btn-success" type="submit">Enviar</button>
+</form>

@@ -1,0 +1,14 @@
+
+<form name="form" method="POST"  action="/application/edital/edit/<?php echo $this->edital->getId();?>">
+	<input type="hidden" name="id" value="<?php echo $this->edital->getId();?>"/>
+	<label>Nome</label>
+	<input type="text" name="nome" value="<?php echo $this->edital->getNome();?>"/>
+	<br/>
+	<label>Descrição</label>
+	<input type="text" name="descricao" value="<?php echo $this->edital->getDescricao();?>"/>
+	<br/>
+	<label>Data de encerramento</label>
+	<input type="text" name="dt_encerramento" value="<?php echo $this->edital->getDt_encerramento();?>"/>
+	<br/>
+	<button class="btn btn-success" type="submit">Enviar</button>
+</form>

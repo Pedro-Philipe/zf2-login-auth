@@ -1,0 +1,33 @@
+
+<h1>Propostas</h1>
+</br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Edital</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->propostas as $o): ?>
+        <tr>
+            <td><?php echo $o->getNome();?></td>
+            <td><?php echo $o->getDescricao();?></td>
+            <td>R$ <?php echo $o->getPreco();?></td>
+            <td><?php echo $o->getId_edital();?></td>
+            <td>
+            </td>
+
+            <td>
+                <a href="/application/proposta/delete/<?php echo $o->getId();?>">
+                Excluir
+                </a>
+            </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
